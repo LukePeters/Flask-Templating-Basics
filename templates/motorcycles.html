@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="card-wrapper">
+
+    <div class="card card--wide center">
+
+      <h1>Motorcycles</h1>
+      
+      <p>Go back to the <a href="{{ url_for('home') }}">Home</a> page.</p>
+      
+    </div>
+
+    {% for bike in motorcycles %}
+      <a href="{{ bike.url }}" class="card center">
+      
+        <h2>{{ bike.name }}</h2>
+
+        <p>
+          ${{ bike.price }}
+
+          {% if bike.price < 7000 %}
+            ($)
+          {% elif bike.price < 10000 %}
+            ($$)
+          {% else %}
+            ($$$)
+          {% endif %}
+        </p>
+
+        <img src="{{ url_for('static', filename=bike.image) }}" alt="{{ bike.name }}">
+        
+      </a>
+    {% endfor %}
+
+  </div>
+{% endblock %}

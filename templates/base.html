@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Flask Templating Basics</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+
+  {% include "includes/header.html" %}
+
+  {% block content %}
+    {# Template inserted here #}
+  {% endblock %}
+
+  {% include "includes/footer.html" %}
+
+</body>
+</html>
